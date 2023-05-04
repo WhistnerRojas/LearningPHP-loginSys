@@ -1,0 +1,3 @@
+DirectoryIndex public/index.php
+AddType application/javascript module
+ErrorDocument 404 http://localhost/signinup/?page=404
