@@ -1,16 +1,16 @@
         <div class="wrapper">
             <section class="form signup">
-            <header>Chat App</header>
+            <header class="header">Chat App</header>
             <form method="POST" enctype="multipart/form-data" autocomplete="off">
                 <div class="error-text"></div>
                 <div class="name-details">
                 <div class="field input">
                     <label>First Name</label>
-                    <input type="text" name="fname" placeholder="First name" autocomplete="new-password" required>
+                    <input type="text" name="fname" placeholder="First name" autocomplete="off" required>
                 </div>
                 <div class="field input">
                     <label>Last Name</label>
-                    <input type="text" name="lname" placeholder="Last name" autocomplete="new-password"  required>
+                    <input type="text" name="lname" placeholder="Last name" autocomplete="off"  required>
                 </div>
                 </div>
                 <div class="field input">

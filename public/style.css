@@ -40,11 +40,15 @@ body{
     color: #721c24;
     padding: 8px 10px;
     text-align: center;
+    font-size: 15px;
     border-radius: 5px;
     background: #f8d7da;
     border: 1px solid #f5c6cb;
     margin-bottom: 10px;
     display: none;
+}
+.form form .error-text .pass{
+    text-align:left;
 }
 .form form .name-details{
     display: flex;
@@ -125,13 +129,23 @@ body{
     border-bottom: 1px solid #e6e6e6;
     justify-content: space-between;
 }
-.wrapper img{
-    object-fit: cover;
+.wrapper .dp_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
+    /* background-color: #000; */
+    height: 60px;
+    width: 60px;
+    overflow: wrap;
+}
+.wrapper .header{
+    text-align: center;
 }
 .users header img{
-    height: 50px;
-    width: 50px;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 :is(.users, .users-list) .content{
     display: flex;
@@ -409,4 +423,17 @@ body{
     .chat-area form button{
         width: 45px;
     }
+}
+
+.errpage{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 15%;
+}
+
+span.status-dot{
+    font-size: 12px !important;
+    color: #468669;
+    padding-left: 5px
 }

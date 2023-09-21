@@ -1,2 +1,5 @@
-<h1>Error: 404 </h1>
-<p>Page not found!</p>
+<div class="errpage">
+    <h1>Error: 401 </h1>
+    <p>Unauthorized!</p>
+    <span>You don not have enough credentials to access this page.</span>
+</div>
