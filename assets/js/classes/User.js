@@ -6,6 +6,7 @@ export default class User{
         this.email = email
         this.pass = pass
         this.profilePic = profilePic
+        // this.formSignUp = formSignUp
     }
 
     async login(){
@@ -77,7 +78,7 @@ export default class User{
             errLegnth= "<p>*Password must be 8 characters long or more.</p>"
         }
         
-        // To check if all conditions are met:
+        // check if all conditions are met:
         if (hasUppercase && hasLowercase && hasDigit && hasSpecialChar && hasCorrectLength) {
             return true;
         }else{
@@ -89,10 +90,10 @@ export default class User{
     checkProfilePic(){
         const validExtensions = ["jpeg", "png", "jpg"];
         const profilePic = this.profilePic;
-        let y = profilePic.toLowerCase().slice(profilePic.lastIndexOf(".") + 1);
+        console.log(this.profilePic.name)
+        let y = profilePic.name.toLowerCase().slice(profilePic.name.lastIndexOf(".") + 1);
 
         if(!validExtensions.includes(y)){
-            console.log('your file should be in image format.')
             return false;
         }
         else {
@@ -103,20 +104,20 @@ export default class User{
     async regNewUser(){
 
         if(this.sanitizeFName && this.sanitizeLName && this.sanitizeEmail && this.sanitizePass && this.checkProfilePic){
-            console.log('got in')
-            const regFormdata = new FormData();
+
             const fname = this.fname
             const lname = this.lname
             const email = this.email
             const pass = this.pass
             const profilePic = this.profilePic
 
+            const regFormdata = new FormData();
 
             regFormdata.append("fname", fname);
             regFormdata.append("lname", lname);
             regFormdata.append("email", email);
             regFormdata.append("pass", pass);
-            regFormdata.append("profilepic", profilePic);
+            regFormdata.append("image", profilePic);
 
             if(this.sanitizeEmail() === true){
                 return await fetch(`http://localhost/signinup/assets/php/register.php`,{
@@ -125,7 +126,7 @@ export default class User{
                 })
                 .then(res =>res.json())
                 .then(data =>{
-                    return data.msg
+                    return data
                 })
                 .catch(err =>{
                     console.log(err)
@@ -135,6 +136,7 @@ export default class User{
         }else{
             return 'Something went wrong. Please try again.';
         }
+
     }
 
 }

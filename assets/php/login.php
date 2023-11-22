@@ -13,7 +13,7 @@ $email = $_POST['email'] ?? '';
 $pass = trim($_POST['pass']) ?? '';
 $logUser = new Request($email, $pass);
 
-if($logUser->getUsers() === true){
+if($logUser->getUser() === true){
     echo json_encode(array('msg' => 'valid'));
 }else{
     echo json_encode(array('msg' => 'invalid'));

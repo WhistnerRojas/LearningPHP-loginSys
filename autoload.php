@@ -3,6 +3,7 @@
 spl_autoload_register('AutoLoaderClasses');
 
 function AutoLoaderClasses($classname){
+    // var_dump($classname);
     // $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $url = $_SERVER['HTTP_HOST']."signinup/";
 

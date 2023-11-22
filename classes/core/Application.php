@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class Application
+ * 
+ * @author Whistner Rojas <whistner.rojas.fg@gmail.com>
+ * @package Application
+ */
+
 class Application{
     public Router $router;
     public static Application $app;

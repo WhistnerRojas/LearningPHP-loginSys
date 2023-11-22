@@ -13,4 +13,10 @@ class Connect{
 
         return $pdo;
     }
+
+    protected function mysql_conn(){
+        $conn = mysqli_connect($this->dbHost, $this->dbUserName, $this->dbPass, $this->dbName);
+        return $conn;
+        // $conn ? "" : die();
+    }
 }

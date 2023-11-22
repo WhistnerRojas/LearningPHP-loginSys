@@ -12,6 +12,10 @@ if(!isset($_SESSION['unique_id'])){
     $app->router->get("?page=404", '404');
 }else{
     $app->router->get("$url", 'users');
+    if(isset($_GET['user_id'])){
+        $userId = $_GET['user_id'];
+        $app->router->get('?user=chat&user_id='.$userId , 'chat');
+    }
     $app->router->get("?user=logout", 'logout');
 }
 

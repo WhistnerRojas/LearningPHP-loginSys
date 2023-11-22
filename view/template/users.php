@@ -13,7 +13,7 @@
                                     echo $_SESSION['fname'].' '.$_SESSION['lname'];
                                 ?></span>
                         <p><?php 
-                            echo $_SESSION['user_status']; 
+                            echo $_SESSION['status']; 
                             ?><span class="status-dot"><i class="fas fa-circle"></i></span></p>
                     </div>
                 </div>
@@ -25,9 +25,7 @@
                 <button><i class="fas fa-search"></i></button>
             </div>
             <div class="users-list">
-        
+                <div id="spinner" class='loading-spinner'></div>
             </div>
         </section>
     </div>
-    <script src="javascript/users.js"></script>
-    <script src="./assets/js/chatSearch.js"></script>

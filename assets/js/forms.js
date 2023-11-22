@@ -1,19 +1,19 @@
 import User from './classes/User.js' 
 
-const formSingUp = document.querySelectorAll(".signup form"),
+const formSignUp = document.querySelectorAll(".signup form"),
 formLogIn = document.querySelectorAll(".login form"),
 continueBtn = document.querySelector(".button input")
 let errorText = document.querySelector(".error-text")
 
-Array.from(formSingUp).forEach(registerInput => {
+Array.from(formSignUp).forEach(registerInput => {
 
     let fname = registerInput[0].value,
             lname = registerInput[1].value,
             email = registerInput[2].value,
             pass = registerInput[3].value,
-            profilePic = registerInput[4].value;
+            profilePic = registerInput[4].files[0];
     let register = new User(fname, lname, email, pass, profilePic);
-            
+
     registerInput[0].addEventListener('keyup', event => {
         setTimeout(() => {
             register.fname = registerInput[0].value
@@ -66,7 +66,10 @@ Array.from(formSingUp).forEach(registerInput => {
     });
 
     registerInput[4].addEventListener('change', event => {
-        register.profilePic = registerInput[4].value
+        register.profilePic = event.target.files[0]
+
+            console.log(registerInput[4].files[0]);
+
         if (register.checkProfilePic() !== true) {
             errorText.style.display = "block";
             errorText.innerHTML = "<span>Your profile picture should be in an image format.</span>";
@@ -79,7 +82,12 @@ Array.from(formSingUp).forEach(registerInput => {
         event.preventDefault()
         register.regNewUser().then(result => {
             errorText.style.display = "block"
-            errorText.innerHTML = result;
+            errorText.innerHTML = result.msg + " redirecting...";
+            setTimeout(() => {
+                if(result.msg2 === 'valid'){
+                    window.location.href = "http://localhost/signinup/"
+                }
+            }, 2000)
         })
     })
 })
